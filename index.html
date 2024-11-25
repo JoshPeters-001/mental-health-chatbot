@@ -1,0 +1,80 @@
+<?php
+session_start();
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <!-- Include Header -->
+   <?php include 'header.php'; ?>
+   <header class="site-header">
+       <div class="header-container">
+           <h1>
+            <img src="assets/logo.png" alt="Logo" class="logo">
+            Welcome to Mental Health Support
+           </h1>
+           <nav class="navigation">
+               <ul>
+                   <li><a href="chat.html">Chat</a></li>
+                   <li><a href="resources.html">Resources</a></li>
+                   <li><a href="advice.html">Advice</a></li>
+                   <li><a href="mood_tracker.html">Mood Tracker</a></li>
+                   <li><a href="logout.php">Logout</a></li>
+               </ul>
+           </nav>
+       </div>
+   </header>   
+    <!-- Main Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-content">
+            <h2>Mental Health Chatbot</h2>
+            <p>We're here to provide support, resources, and a safe space for you to share your thoughts and emotions.</p>
+            <a href="chat.html" class="start-chat-btn">Let's Chat</a>
+        </div>
+    </section>
+    
+    <!-- Section Descriptions -->
+    <section class="info-sections">
+        <div class="info-box">
+            <h3>Resources</h3>
+            <p>Find contacts, websites, and support groups to assist with your mental health journey.</p>
+            <a href="resources.html" class="learn-more-btn">Learn More</a>
+        </div>
+        <div class="info-box">
+            <h3>Daily Advice</h3>
+            <p>Read tips and guidance on maintaining a balanced and positive mental health.</p>
+            <a href="advice.html" class="learn-more-btn">Learn More</a>
+        </div>
+        <div class="info-box">
+            <h3>Mood Tracker</h3>
+            <p>Track your daily emotions to help understand your mental health patterns.</p>
+            <a href="mood_tracker.html" class="learn-more-btn">Track Mood</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 Mental Health Chatbot. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript-->
+    <script>
+        // Example for future JavaScript functionality like confirmation for logging out
+        const logoutBtn = document.querySelector('.logout-btn');
+        logoutBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const confirmLogout = confirm('Are you sure you want to log out?');
+            if (confirmLogout) {
+                window.location.href = 'logout.php';
+            }
+        });
+    </script>
+</body>
+
+</html>

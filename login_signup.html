@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Sign In - Mental Health Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Pre-fill the email/phone field if a cookie is available
+        window.onload = function() {
+            const savedEmail = getCookie('user_email');
+            if (savedEmail) {
+                document.getElementById('signin-email').value = savedEmail;
+                document.getElementById('signin-email').readOnly = true; // Make it read-only
+            }
+        };
+
+        // Function to get a cookie by name
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        } 
+    </script>
+</head>
+<body>
+    <!-- Container for Sign Up and Sign In -->
+    <div class="auth-container">
+        <div class="auth-form">
+            <!-- Sign In Section -->
+            <div class="sign-in-form">
+                <h2>Welcome Back!</h2>
+                <p>Sign in to continue your mental health journey with us.</p>
+                <form action="login_process.php" method="POST">
+                    <div class="input-group">
+                        <label for="signin-email">Email or Phone</label>
+                        <input type="text" id="signin-email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" name="password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+                <div class="switch-auth">
+                    <p>Don't have an account? <a href="#" id="switch-to-signup">Sign Up Now</a></p>
+                </div>
+            </div>
+
+            <!-- Sign Up Section -->
+            <div class="sign-up-form hidden">
+                <h2>Create an Account</h2>
+                <p>Join us and let’s take care of your mental health together.</p>
+                <form action="signup.php" method="POST">
+                    <div class="input-group">
+                        <label for="signup-name">Name</label>
+                        <input type="text" id="signup-name" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email or Phone</label>
+                        <input type="text" id="signup-email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </form>
+                <div class="switch-auth">
+                    <p>Already have an account? <a href="#" id="switch-to-signin">Sign In Here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Image -->
+        <div class="auth-image">
+            <img src="assets/mental_health_theme.png" alt="Mental Health Support">
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+<script>
+    // JavaScript to switch between sign-in and sign-up forms
+    document.getElementById("switch-to-signup").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".sign-in-form").classList.add("hidden");
+        document.querySelector(".sign-up-form").classList.remove("hidden");
+    });
+
+    document.getElementById("switch-to-signin").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(".sign-up-form").classList.add("hidden");
+        document.querySelector(".sign-in-form").classList.remove("hidden");
+    });
+</script>
+</body>
+
+</html>

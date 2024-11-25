@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker - Mental Health Support</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container container">
+        </div>
+        <h1>Mood Tracker</h1>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="advice.html">Advice</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Back Button -->
+    <button onclick="goBack()" class="back-button">Back to Previous Page</button>
+
+    <!-- Mood Tracker Section -->
+    <section class="mood-section">
+        <div class="mood-header">
+            <h2>Track Your Mood 😊</h2>
+            <p>Keep track of how you're feeling and monitor your progress over time.</p>
+        </div>
+        <form id="mood-form">
+            <label for="mood-select">How are you feeling today?</label>
+            <select id="mood-select">
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😢 Sad</option>
+                <option value="anxious">😟 Anxious</option>
+                <option value="angry">😠 Angry</option>
+                <option value="calm">😌 Calm</option>
+                <option value="excited">🤩 Excited</option>
+                <option value="tired">😴 Tired</option>
+            </select>
+
+            <label for="mood-level">How strong is this mood?</label>
+            <input type="range" id="mood-level" min="1" max="10" step="1">
+
+            <button type="button" id="mood-submit-btn" class="mood-submit-btn">Submit Mood</button>
+        </form>
+    </section>
+
+    <!-- Motivational Message Section -->
+    <section class="mood-advice-section" id="mood-advice-section">
+        <h3>Here's Something for You:</h3>
+        <p id="mood-advice-message"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2024 Mental Health Chatbot. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="mood_tracker.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
+
